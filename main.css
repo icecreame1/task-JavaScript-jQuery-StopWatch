@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+h1 {
+  text-align: center;
+}
+
+#timer {
+  font-size: 50px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.buttons button {
+  font-size: 25px;
+  padding: 20px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+}
