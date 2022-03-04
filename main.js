@@ -8,25 +8,47 @@ let m = 0;
 let s = 0;
 let ms = 0;
 
+let new_h = 0;
+let new_m = 0;
+let new_s = 0;
+
 let label = "stop";
 let interval;
 
 function stopWatch () {
   ms++;
-  if(ms / 10 === 1) {
+  if(ms / 10 === 1) {  //100ms*10=1s
     s++;
     ms = 0;
   }
-  if(s / 10 === 1) {
+  if(s / 60 === 1) {
     m++;
     s = 0;
   }
-  if(m / 10 === 1) {
+  if(m / 60 === 1) {
     h++;
     m = 0;
   }
 
-  timer.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+  if(s < 10) {
+    new_s = "0" + s;
+  } else {
+    new_s = s;
+  }
+
+  if(m < 10) {
+    new_m = "0" + m;
+  } else {
+    new_m = m;
+  }
+
+  if(h < 10) {
+    new_h = "0" + h;
+  } else {
+    new_h = h;
+  }
+
+  timer.innerHTML = new_h + ":" + new_m + ":" + new_s + ":" + ms;
 }
 
 //スタートボタン
@@ -56,7 +78,7 @@ reset.addEventListener('click', function() {
   reset.disabled = true;
   start.disabled = false;
   stop.disabled = false;
-  timer.innerHTML = "0:0:0:0";
+  timer.innerHTML = "00:00:00:0";
   h = 0;
   m = 0;
   s = 0;
